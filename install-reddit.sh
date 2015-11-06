@@ -157,6 +157,7 @@ python-tinycss2
 python-unidecode
 python-mock
 python-yaml
+python-pip
 
 python-flask
 geoip-bin
@@ -182,6 +183,8 @@ gunicorn
 sutro
 libpcre3-dev
 PACKAGES
+
+pip install coinbase
 
 # we don't want to upgrade to C* 2.0 yet, so we'll put it on hold
 apt-mark hold cassandra

@@ -28,26 +28,15 @@
 <section hidden class="infobar newsletterbar newsletter-container">
   <header>
     <h1 class="subscribe-callout">
-      <a href="/newsletter"><img src="${static('subscribe-header.svg')}" alt="${_('subscribe to our newsletter')}"></a>
+      <!-- <a href="/newsletter"><img src="${static('subscribe-header.svg')}" alt="${_('subscribe to our newsletter')}"></a> -->
+      ${_('Earn Bitcoin By Posting And Commenting')}
     </h1>
-    <div class="subscribe-thanks"><img src="${static('subscribe-header-thanks.svg')}" alt="_('thanks for subscribing')" /></div>
-    <h2 class="result-message">${_('get the best of reddit, delivered once a week')}</h2>
+    <h2 class="result-message">
+      ${_('A Reddit clone where every up-vote and down-vote = 1 bit')}
+    </h2>
   </header>
-  <form class="newsletter-signup form-v2 c-form-inline" method="post" action="${make_url_https('/api/newsletter.json')}">
-    <input type="hidden" name="uh" value="${c.modhash}" />
-    <input type="hidden" name="source" value="newsletterbar">
-    <%call expr="form_group('email', 'BAD_EMAIL', show_errors=True, feedback_inside_input=True)">
-      <label for="email" class="screenreader-only">${_('email')}:</label>
-      <input value=""
-             name="email"
-             class="c-form-control"
-             type="email"
-             placeholder="${_('enter your email')}"
-             data-validate-url="/api/check_email.json"
-             data-validate-on="change blur">
-    </%call>
-
-    <button type="submit" class="c-btn c-btn-highlight">${_('subscribe')}</button>
+  <form class="newsletter-signup form-v2 c-form-inline">
+    <a href="/login" class="c-btn c-btn-highlight">${_('Sign Up And Get 10 Bits')}</a>
   </form>
   <a href="#" class="newsletter-close" title="close">&times;</a>
 </section>

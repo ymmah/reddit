@@ -187,7 +187,7 @@ class FrontController(RedditController):
                           show_chooser=True,
                           page_classes=['explore-page'],
                           content=content).render()
- 
+
     @validate(article=VLink('article'))
     def GET_shirt(self, article):
         if not can_view_link_comments(article):
@@ -1406,6 +1406,11 @@ class FrontController(RedditController):
                           content=ContactUs(), page_classes=["contact-us-page"]
                           ).render()
 
+    def GET_info(self):
+        return BoringPage(_("info"), show_sidebar=False,
+                          content=Info(), page_classes=["info-page"]
+                          ).render()
+
     @validate(vendor=VOneOf("v", ("claimed-gold", "claimed-creddits",
                                   "spent-creddits", "paypal", "coinbase",
                                   "stripe"),
@@ -1873,7 +1878,7 @@ class FormsController(RedditController):
                              not c.user.has_gold_subscription)
             if not can_subscribe and goldtype == "autorenew":
                 self.redirect("/creddits", code=302)
-                
+
             return BoringPage(_("reddit gold"),
                               show_sidebar=False,
                               content=Gold(goldtype, period, months, signed,

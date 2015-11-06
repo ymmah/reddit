@@ -29,9 +29,8 @@ r.newsletter.ui = {
 
     $('.newsletter-close').on('click', function() {
       $('.newsletterbar').hide();
+      store.safeSet('newsletterbar.seen', true);
     });
-
-    store.safeSet('newsletterbar.seen', true);
   },
 
   _setupNewsletter: function() {
@@ -67,7 +66,7 @@ r.newsletter.ui.NewsletterForm.prototype = $.extend(new r.ui.Form(), {
     this.$el.find('.error').css('opacity', 1)
     r.ui.Form.prototype.showStatus.apply(this, arguments)
   },
-  
+
   _submit: function() {
     r.analytics.fireGAEvent('newsletter-form', 'submit');
     return r.newsletter.post(this);

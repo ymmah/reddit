@@ -425,7 +425,6 @@ class HotController(ListingWithPromos):
     show_organic = True
 
     def query(self):
-
         if isinstance(c.site, DefaultSR):
             sr_ids = Subreddit.user_subreddits(c.user)
             return normalized_hot(sr_ids)
@@ -440,7 +439,7 @@ class HotController(ListingWithPromos):
                 # returning a list of all the hot links after this if we
                 # modify it directly
                 link_list = sticky_fullnames[:]
-                
+
                 wrapped = wrap_links(link_list,
                                      wrapper=self.builder_wrapper,
                                      keep_fn=self.keep_fn(),
@@ -453,7 +452,7 @@ class HotController(ListingWithPromos):
                         self.count -= len(sticky_fullnames)
                         self.num += len(sticky_fullnames)
                     return link_list
-            
+
             # no sticky or sticky hidden
             return c.site.get_links('hot', 'all')
 
@@ -876,7 +875,7 @@ class UserController(ListingController):
                 if query_string:
                     path += "?" + query_string
                 return self.redirect(path, code=301)
-        
+
         self.where = where
         self.sort = sort
         self.time = time
@@ -1272,8 +1271,8 @@ class MessageController(ListingController):
             content = MessageCompose(to=to, subject=subject, captcha=captcha,
                                      message=message)
 
-        return MessagePage(content=content, 
-            title=self.title(), 
+        return MessagePage(content=content,
+            title=self.title(),
             page_classes=self.extra_page_classes + ['compose-page'],
         ).render()
 

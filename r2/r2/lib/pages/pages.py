@@ -333,7 +333,7 @@ class Reddit(Templated):
                 if getattr(self, "show_newsletterbar", True):
                     self.newsletterbar = NewsletterBar()
 
-            if (c.render_style == "compact" and 
+            if (c.render_style == "compact" and
                     getattr(self, "show_mobilewebredirectbar", True)):
                 self.mobilewebredirectbar = MobileWebRedirectBar()
 
@@ -960,48 +960,12 @@ class RedditFooter(CachedTemplate):
     def __init__(self):
         self.nav = [
             NavMenu([
-                    NamedButton("blog", False, nocname=True, dest="/blog"),
-                    NamedButton("about", False, nocname=True),
-                    NamedButton("team", False, nocname=True, dest="/about/team"),
-                    NamedButton("source_code", False, nocname=True, dest="/code"),
-                    NamedButton("advertising", False, nocname=True),
-                    NamedButton("jobs", False, nocname=True),
+                    NamedButton("about_rebbit", False, nocname=True, dest="/info"),
+                    NamedButton("source_code", False, nocname=True, dest="https://github.com/barmstrong/reddit"),
                 ],
                 title = _("about"),
                 type = "flat_vert",
                 separator = ""),
-
-            NavMenu([
-                    NamedButton("rules", False, nocname=True),
-                    OffsiteButton(_("FAQ"), "https://reddit.zendesk.com"),
-                    NamedButton("wiki", False, nocname=True),
-                    NamedButton("reddiquette", False, nocname=True, dest="/wiki/reddiquette"),
-                    NamedButton("transparency", False, nocname=True, dest="/wiki/transparency"),
-                    NamedButton("contact", False),
-                ],
-                title = _("help"),
-                type = "flat_vert",
-                separator = ""),
-
-            NavMenu([
-                    OffsiteButton(_("Alien Blue iOS app"), "//alienblue.org"),
-                    OffsiteButton(_("reddit AMA app"), "//redditama.reddit.com/"),
-                    OffsiteButton(_("mobile beta"), "https://m.reddit.com"),
-                    NamedButton("buttons", False, nocname=True),
-                ],
-                title = _("apps & tools"),
-                type = "flat_vert",
-                separator = ""),
-
-            NavMenu([
-                    NamedButton("gold", False, nocname=True, dest="/gold/about", css_class="buygold"),
-                    OffsiteButton(_("reddit store"), "http://redditmarket.com"),
-                    OffsiteButton(_("redditgifts"), "//redditgifts.com"),
-                    OffsiteButton(_("reddit.tv"), "//reddit.tv"),
-                ],
-                title = _("<3"),
-                type = "flat_vert",
-                separator = "")
         ]
         CachedTemplate.__init__(self)
 
@@ -2975,7 +2939,7 @@ class GoldPayment(Templated):
             user_creddits = 50
         else:
             user_creddits = c.user.gold_creddits
-            
+
         if (goldtype in ("gift", "code", "onetime") and
                 months <= user_creddits):
             can_use_creddits = True
@@ -3393,6 +3357,9 @@ class ButtonDemoPanel(Templated):
     pass
 
 class ContactUs(Templated):
+    pass
+
+class Info(Templated):
     pass
 
 
@@ -4156,7 +4123,7 @@ class PromoteLinkBase(Templated):
     max_start = None
     max_end = None
 
-    def get_locations(self): 
+    def get_locations(self):
         # geotargeting
         def location_sort(location_tuple):
             code, name, default = location_tuple
@@ -4251,7 +4218,7 @@ class PromoteLinkEdit(PromoteLinkBase):
         self.max_start = max_start.strftime("%m/%d/%Y")
         self.max_end = max_end.strftime("%m/%d/%Y")
         self.default_start = default_start.strftime("%m/%d/%Y")
-        self.default_end = default_end.strftime("%m/%d/%Y") 
+        self.default_end = default_end.strftime("%m/%d/%Y")
 
         self.link = link
         self.listing = listing
@@ -4557,7 +4524,7 @@ class UserText(CachedTemplate):
 
         if text is None:
             text = ''
-            
+
         # set the attribute for admin takedowns
         if getattr(item, 'admin_takedown', False):
             admin_takedown = True
@@ -4961,7 +4928,7 @@ class PromoteReport(PromoteLinkBase):
             })
         crt = self.campaign_report_totals
         crt['total_clicks'] = crt['sr_clicks'] + crt['fp_clicks']
-        crt['total_imps'] = crt['sr_imps'] + crt['fp_imps']   
+        crt['total_imps'] = crt['sr_imps'] + crt['fp_imps']
         crt['bid'] = format_currency(crt['bid'], 'USD', locale=c.locale)
         # make the link report
         traffic_by_key = group_and_combine(
@@ -5226,7 +5193,6 @@ class PolicyPage(BoringPage):
         toolbars.append(policies_menu)
         return toolbars
 
-
 class Newsletter(BoringPage):
     extra_page_classes = ['newsletter']
 
@@ -5338,7 +5304,7 @@ class ExploreItem(Templated):
             useful for comparing performance of data sources or algorithms
         sr and link are required
         comment is optional
-        
+
         See r2.lib.recommender for valid values of item_type and rec_src.
 
         """

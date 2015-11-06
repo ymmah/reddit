@@ -61,9 +61,9 @@ menu =   MenuHandler(hot          = _('hot'),
                      qa           = _('q&a'),
                      saved        = _('saved {toolbar}'),
                      recommended  = _('recommended'),
-                     rising       = _('rising'), 
-                     admin        = _('admin'), 
-                                 
+                     rising       = _('rising'),
+                     admin        = _('admin'),
+
                      # time sort words
                      hour         = _('past hour'),
                      day          = _('past 24 hours'),
@@ -71,24 +71,24 @@ menu =   MenuHandler(hot          = _('hot'),
                      month        = _('past month'),
                      year         = _('past year'),
                      all          = _('all time'),
-                                  
+
                      # "kind" words
                      spam         = _("spam"),
                      autobanned   = _("autobanned"),
 
                      # reddit header strings
-                     prefs        = _("preferences"), 
+                     prefs        = _("preferences"),
                      submit       = _("submit"),
                      wiki         = _("wiki"),
                      blog         = _("blog"),
                      logout       = _("logout"),
-                     
+
                      #reddit footer strings
                      reddiquette  = _("reddiquette"),
                      contact      = _("contact us"),
                      buttons      = _("buttons"),
-                     widget       = _("widget"), 
-                     mobile       = _("mobile"), 
+                     widget       = _("widget"),
+                     mobile       = _("mobile"),
                      advertising  = _("advertise"),
                      gold         = _('reddit gold'),
                      reddits      = _('subreddits'),
@@ -124,6 +124,7 @@ menu =   MenuHandler(hot          = _('hot'),
                      # reddits
                      home         = _("home"),
                      about        = _("about"),
+                     about_rebbit = _("about rebbit"),
                      edit_subscriptions = _("edit subscriptions"),
                      community_settings = _("subreddit settings"),
                      edit_stylesheet    = _("edit stylesheet"),
@@ -140,10 +141,10 @@ menu =   MenuHandler(hot          = _('hot'),
                      edited       = _("edited"),
                      employee     = _("employee"),
                      automod      = _("automoderator config"),
-                     
+
                      wikibanned        = _("ban wiki contributors"),
                      wikicontributors  = _("add wiki contributors"),
-                     
+
                      wikirecentrevisions = _("recent wiki revisions"),
                      wikipageslist = _("wiki page list"),
 
@@ -336,7 +337,7 @@ class NavButton(Styled):
             ('path', self.path),
             ('sr_path', self.sr_path),
             ('nocname', self.nocname),
-            ('target', self.target), 
+            ('target', self.target),
             ('css_class', self.css_class),
             ('_id', self._id),
             ('data', self.data),
@@ -500,7 +501,7 @@ class JsButton(NavButton):
         return [
             ('title', self.title),
             ('path', self.path),
-            ('target', self.target), 
+            ('target', self.target),
             ('css_class', self.css_class),
             ('_id', self._id),
             ('tab_name', self.tab_name),

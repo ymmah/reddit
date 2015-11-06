@@ -20,32 +20,14 @@
 ## reddit Inc. All Rights Reserved.
 ###############################################################################
 
-<%!
-   from r2.lib.strings import strings
-   import datetime
-%>
-<%namespace file="utils.html" import="text_with_links"/>
+<div style="font-size: 13px;">
+  <h1>What is Rebbit?</h1>
+  <p>Rebbit is a Reddit clone where all karma points are converted to bits. One bit is equal to one millionth of a bitcoin.</p>
+  <p>This means that you can earn money by posting content or comments. Rebbit is more of a economy while Reddit is more of a community.</p>
 
-<div class="footer-parent">
-  <div by-zero class="footer rounded">
-      %for toolbar in thing.nav:
-      <div class="col">
-        ${toolbar}
-      </div>
-      %endfor
-  </div>
-  %if g.domain != "reddit.com":
-    <!-- http://code.reddit.com/LICENSE see Exhibit B -->
-    <a href="https://www.reddit.com/code/" style="text-align:center;display:block">
-      <img src="https://s3.amazonaws.com/sp.reddit.com/powered_by_reddit.png"
-           alt="Powered by reddit."
-           style="width:140px; height:47px; margin-bottom: 5px"/>
-    </a>
-  %endif
-  <p class="bottommenu">
-    &copy; ${_("%(year)d") % \
-    dict(year=datetime.datetime.now().timetuple()[0])}
-    &nbsp; Powered by &nbsp;<a href="https://www.reddit.com/code/">Reddit Source Code</a>
-  </p>
-  <!-- <p class="bottommenu">REDDIT and the ALIEN Logo are registered trademarks of reddit inc.</p> -->
+  <h1>What is bitcoin?</h1>
+  <p><a href="https://www.coinbase.com/what-is-bitcoin">See here</a></p>
+
+  <h1>Why did you make this?</h1>
+  <p>It is an experiment to see how people use it. Bitcoin enables micro-payments, in real time, anywhere around the world. Reddit is a collection of global communities. What would happen if you mashed them up? Put another way, Reddit is the front page of the internet, and bitcoin is the currency of the internet. Rebbit is an attempt to create an economy amongst loosely formed global communities.</p>
 </div>

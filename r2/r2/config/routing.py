@@ -164,7 +164,7 @@ def make_map(config):
           requirements=dict(controller="hot|new|rising|randomrising|ads"))
 
     mc('/user/:username/:where/:show', controller='user', action='listing')
-    
+
     mc('/explore', controller='front', action='explore')
     mc('/api/recommend/feedback', controller='api', action='rec_feedback')
 
@@ -176,6 +176,7 @@ def make_map(config):
     mc('/about/sticky', controller='front', action='sticky')
     mc('/about/flair', controller='front', action='flairlisting')
     mc('/about', controller='front', action='about')
+
     for connect in (mc,) + multi_prefixes:
        connect('/about/message/:where', controller='message',
           action='listing')
@@ -206,6 +207,8 @@ def make_map(config):
         action='user_prefs', requirements=dict(where='blocked|friends'))
     mc('/prefs/:location', controller='forms', action='prefs',
        location='options')
+
+    mc('/info', controller='front', action='info')
 
     mc('/info/0:article/*rest', controller='front',
        action='oldinfo', dest='comments', type='ancient')
@@ -299,7 +302,7 @@ def make_map(config):
     mc('/gold/thanks', controller='front', action='goldthanks')
     mc('/gold/subscription', controller='forms', action='subscription')
     mc('/gilding', controller='front', action='gilding')
-    mc('/creddits', controller='redirect', action='redirect', 
+    mc('/creddits', controller='redirect', action='redirect',
        dest='/gold?goldtype=creddits')
 
     mc('/password', controller='forms', action="password")
@@ -403,7 +406,7 @@ def make_map(config):
        conditions={"method": ["POST"]})
 
     mc('/api/:action', controller='api')
-    
+
     mc('/api/recommend/sr/:srnames', controller='api',
        action='subreddit_recommendations')
 
